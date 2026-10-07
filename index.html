@@ -1,0 +1,1904 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio de Beleza Magda Pires | Maquiagem, Cílios & Estética no Andaraí</title>
+  
+  <!-- Fontes do Google: DM Serif Display para títulos refinados e Figtree para textos nítidos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* VARIÁVEIS DA PALETA DE MAQUIAGEM (Tons de Rosa Estruturados) */
+    :root {
+      --swatch-nude: #FCF7F7;       /* Fundo suave off-white rosado */
+      --swatch-blush: #F4D5D9;      /* Rosa blush bem claro */
+      --swatch-pink-soft: #ECA1AE;  /* Rosa suave intermediário */
+      --swatch-rose: #D96E84;       /* Rosa médio clássico de paleta */
+      --swatch-berry: #B23D5A;      /* Rosa queimado / Framboesa */
+      --swatch-wine: #5F1527;       /* Vinho marsala profundo para contrastes e textos */
+      --text-dark: #37141C;         /* Texto principal de alto contraste */
+      --text-muted: #734550;        /* Texto secundário */
+      --white: #FFFFFF;
+      --shadow-sm: 0 4px 12px rgba(95, 21, 39, 0.08);
+      --shadow-md: 0 8px 24px rgba(95, 21, 39, 0.12);
+      --shadow-lg: 0 16px 36px rgba(95, 21, 39, 0.18);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    /* Reset global e configurações base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Figtree', sans-serif;
+      background-color: var(--swatch-nude);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .font-serif {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+    }
+
+    /* Componente Visual Recorrente: Swatches de Maquiagem */
+    .swatch-dot {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: var(--radius-full);
+      box-shadow: inset 0 1px 2px rgba(255,255,255,0.6), 0 2px 4px rgba(0,0,0,0.12);
+    }
+    .swatch-1 { background-color: var(--swatch-blush); }
+    .swatch-2 { background-color: var(--swatch-pink-soft); }
+    .swatch-3 { background-color: var(--swatch-rose); }
+    .swatch-4 { background-color: var(--swatch-berry); }
+    .swatch-5 { background-color: var(--swatch-wine); }
+
+    /* Estilos de Botões */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.85rem 1.6rem;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .btn-primary {
+      background-color: var(--swatch-berry);
+      color: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+    .btn-primary:hover {
+      background-color: var(--swatch-wine);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      color: var(--white);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--swatch-wine);
+      border-color: var(--swatch-wine);
+    }
+    .btn-secondary:hover {
+      background-color: var(--swatch-wine);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .btn-light {
+      background-color: var(--white);
+      color: var(--swatch-wine);
+      box-shadow: var(--shadow-sm);
+    }
+    .btn-light:hover {
+      background-color: var(--swatch-blush);
+      transform: translateY(-2px);
+    }
+
+    /* Tag de Seção */
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      color: var(--swatch-berry);
+      background-color: rgba(244, 213, 217, 0.45);
+      padding: 0.35rem 0.9rem;
+      border-radius: var(--radius-full);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: 2.25rem;
+      color: var(--swatch-wine);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    @media (min-width: 768px) {
+      .section-title { font-size: 2.85rem; }
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      max-width: 650px;
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Header Fixo */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(252, 247, 247, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(224, 135, 152, 0.25);
+      transition: var(--transition);
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-swatches {
+      display: flex;
+      gap: 4px;
+    }
+
+    .brand-name {
+      font-size: 1.45rem;
+      color: var(--swatch-wine);
+      line-height: 1.1;
+    }
+    .brand-sub {
+      display: block;
+      font-family: 'Figtree', sans-serif;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--swatch-berry);
+      font-weight: 600;
+    }
+
+    .nav-menu {
+      display: none;
+      align-items: center;
+      gap: 1.75rem;
+      list-style: none;
+    }
+    .nav-link {
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      position: relative;
+      padding-bottom: 4px;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: var(--swatch-berry);
+      transition: var(--transition);
+      border-radius: var(--radius-full);
+    }
+    .nav-link:hover {
+      color: var(--swatch-berry);
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 28px;
+      height: 20px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+    .menu-toggle span {
+      width: 100%;
+      height: 2.5px;
+      background-color: var(--swatch-wine);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    /* Mobile Drawer */
+    .mobile-menu-drawer {
+      display: none;
+      background: var(--swatch-nude);
+      border-bottom: 2px solid var(--swatch-blush);
+      padding: 1.5rem 1.25rem 2rem;
+    }
+    .mobile-menu-drawer.active {
+      display: block;
+    }
+    .mobile-nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+    .mobile-nav-list .nav-link {
+      font-size: 1.1rem;
+      display: block;
+    }
+
+    @media (min-width: 992px) {
+      .nav-menu { display: flex; }
+      .menu-toggle { display: none; }
+      .mobile-menu-drawer { display: none !important; }
+    }
+
+    /* HERO: Formato de Grade de Portfólio com Sobreposição Elegante */
+    .hero-section {
+      position: relative;
+      padding: 3rem 0 4.5rem;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(252, 247, 247, 0.4) 0%, rgba(244, 213, 219, 0.25) 100%);
+    }
+
+    .hero-grid-wrapper {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      background-color: var(--swatch-wine);
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Fundo composto por 6 fotos de portfólio */
+    .hero-photos-grid {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 4px;
+      opacity: 0.35;
+      filter: saturate(110%);
+      pointer-events: none;
+    }
+    @media (min-width: 768px) {
+      .hero-photos-grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+      }
+    }
+    .hero-photo-item {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Overlay refinado */
+    .hero-overlay-card {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 780px;
+      padding: 3rem 1.5rem;
+      color: var(--white);
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(8px);
+      padding: 0.4rem 1.1rem;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      color: #FFF;
+    }
+    .hero-title {
+      font-size: 2.6rem;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      color: #FFFFFF;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    @media (min-width: 768px) {
+      .hero-title { font-size: 3.8rem; }
+    }
+    .hero-subtitle {
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: #FCEFF1;
+      max-width: 580px;
+      margin: 0 auto 2.2rem;
+      line-height: 1.5;
+    }
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    /* Barra Interativa de Swatches (Filtros de Paleta de Sombra) */
+    .swatches-nav-section {
+      padding: 1.5rem 0 3rem;
+      position: relative;
+      z-index: 10;
+    }
+    .swatches-bar {
+      background: var(--white);
+      border: 1px solid rgba(224, 135, 152, 0.3);
+      box-shadow: var(--shadow-md);
+      border-radius: var(--radius-full);
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      overflow-x: auto;
+      scrollbar-width: none; /* Firefox */
+      -webkit-overflow-scrolling: touch;
+    }
+    .swatches-bar::-webkit-scrollbar {
+      display: none;
+    }
+    .swatches-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--swatch-berry);
+      white-space: nowrap;
+      margin-right: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .swatch-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.45rem 1rem;
+      border-radius: var(--radius-full);
+      background: var(--swatch-nude);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      white-space: nowrap;
+      border: 1px solid transparent;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .swatch-item .palette-circle {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      box-shadow: inset 0 2px 3px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.1);
+      border: 1px solid rgba(255,255,255,0.8);
+      transition: var(--transition);
+    }
+    .swatch-item:hover, .swatch-item.active {
+      background: var(--swatch-blush);
+      border-color: var(--swatch-rose);
+      color: var(--swatch-wine);
+      transform: translateY(-2px);
+    }
+    .swatch-item:hover .palette-circle {
+      transform: scale(1.15);
+    }
+
+    /* SEÇÃO SOBRE */
+    .about-section {
+      padding: 4.5rem 0;
+      background-color: var(--white);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    @media (min-width: 860px) {
+      .about-grid {
+        grid-template-columns: 1.1fr 1fr;
+      }
+    }
+    .about-visual {
+      position: relative;
+    }
+    .about-main-img-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 4px solid var(--swatch-blush);
+      position: relative;
+    }
+    .about-main-img-card img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+    }
+    .google-badge-card {
+      position: absolute;
+      bottom: -20px;
+      right: 15px;
+      background: var(--white);
+      border: 1px solid rgba(224, 135, 152, 0.3);
+      box-shadow: var(--shadow-md);
+      border-radius: var(--radius-md);
+      padding: 0.9rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    .google-stars {
+      color: #E7711B;
+      font-size: 1rem;
+      letter-spacing: 2px;
+    }
+    .google-score {
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--swatch-wine);
+    }
+    .about-text-content p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+    .feature-points {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.85rem;
+      margin-top: 1.75rem;
+      margin-bottom: 2rem;
+    }
+    @media (min-width: 480px) {
+      .feature-points {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .feature-point-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 600;
+      color: var(--swatch-wine);
+    }
+
+    /* SEÇÃO PORTFÓLIO MASONRY: Carro-chefe (Maquiagem e Cílios) */
+    .portfolio-section {
+      padding: 5rem 0;
+      background-color: var(--swatch-nude);
+    }
+    
+    /* Configuração real do CSS Masonry com multi-columns */
+    .masonry-gallery {
+      column-count: 2;
+      column-gap: 1.25rem;
+    }
+    @media (min-width: 768px) {
+      .masonry-gallery { column-count: 3; }
+    }
+    @media (min-width: 1024px) {
+      .masonry-gallery { column-count: 4; }
+    }
+
+    .masonry-card {
+      break-inside: avoid;
+      margin-bottom: 1.25rem;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+      background-color: var(--swatch-blush);
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .masonry-card img {
+      width: 100%;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .masonry-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+    .masonry-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .masonry-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(95, 21, 39, 0.85) 0%, rgba(95, 21, 39, 0.2) 60%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.25rem;
+      opacity: 0;
+      transition: var(--transition);
+      color: var(--white);
+    }
+    .masonry-card:hover .masonry-overlay {
+      opacity: 1;
+    }
+    .overlay-category {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--swatch-pink-soft);
+      font-weight: 700;
+    }
+    .overlay-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-top: 0.2rem;
+    }
+
+    /* SEÇÃO MICROPIGMENTAÇÃO */
+    .micro-section {
+      padding: 5rem 0;
+      background: linear-gradient(180deg, var(--white) 0%, #FAF0F2 100%);
+    }
+    .micro-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    @media (min-width: 900px) {
+      .micro-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .micro-cards-dual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .micro-photo-box {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow-md);
+      border: 3px solid var(--white);
+    }
+    .micro-photo-box img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+    }
+    .micro-tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(95, 21, 39, 0.85);
+      backdrop-filter: blur(4px);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--radius-full);
+      letter-spacing: 0.08em;
+    }
+
+    /* SEÇÃO ESTÉTICA (Facial, Corporal e Penteado) */
+    .services-section {
+      padding: 5rem 0;
+      background-color: var(--white);
+    }
+    .services-grid-3 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    @media (min-width: 768px) {
+      .services-grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .service-card {
+      background: var(--swatch-nude);
+      border: 1px solid rgba(224, 135, 152, 0.35);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.75rem;
+      position: relative;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .service-card:hover {
+      background: var(--white);
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--swatch-rose);
+    }
+    .service-icon-box {
+      width: 54px;
+      height: 54px;
+      border-radius: var(--radius-md);
+      background-color: var(--swatch-blush);
+      color: var(--swatch-wine);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      font-size: 1.5rem;
+    }
+    .service-title {
+      font-size: 1.35rem;
+      color: var(--swatch-wine);
+      margin-bottom: 0.75rem;
+    }
+    .service-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--swatch-berry);
+    }
+    .service-link:hover {
+      color: var(--swatch-wine);
+      transform: translateX(4px);
+    }
+
+    /* SEÇÃO UNHAS (Nails Designer, Manicure, Pedicure) */
+    .nails-section {
+      padding: 5rem 0;
+      background-color: var(--swatch-nude);
+    }
+
+    /* SEÇÃO DEPOIMENTOS E AVALIAÇÕES GOOGLE */
+    .reviews-section {
+      padding: 5.5rem 0;
+      background: linear-gradient(135deg, #FAF0F2 0%, var(--white) 100%);
+    }
+    .google-header-highlight {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .google-star-row {
+      display: flex;
+      gap: 4px;
+      color: #E7711B;
+      font-size: 1.4rem;
+      margin: 0.5rem 0;
+    }
+    .google-stat-text {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--swatch-wine);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    @media (min-width: 768px) {
+      .testimonials-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .testimonial-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2.2rem 1.75rem;
+      border: 1px solid rgba(224, 135, 152, 0.3);
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--swatch-rose);
+    }
+    /* Pequeno swatch de paleta no canto superior direito do card */
+    .testimonial-swatch {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+    }
+    .quote-icon {
+      font-family: 'DM Serif Display', serif;
+      font-size: 3.5rem;
+      line-height: 1;
+      color: var(--swatch-blush);
+      margin-bottom: -1rem;
+    }
+    .testimonial-quote {
+      font-style: italic;
+      color: var(--text-dark);
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+    .reviewer-info {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      border-top: 1px solid rgba(244, 213, 217, 0.6);
+      padding-top: 1rem;
+    }
+    .reviewer-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--swatch-blush);
+      color: var(--swatch-wine);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+    .reviewer-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--swatch-wine);
+    }
+    .reviewer-source {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* SEÇÃO LOCALIZAÇÃO & EDIFÍCIO SAN REMO */
+    .location-section {
+      padding: 5rem 0;
+      background-color: var(--white);
+    }
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    @media (min-width: 860px) {
+      .location-grid {
+        grid-template-columns: 1fr 1.2fr;
+      }
+    }
+    .location-info-card {
+      background: var(--swatch-nude);
+      border: 1px solid rgba(224, 135, 152, 0.35);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+    }
+    .location-detail-group {
+      display: flex;
+      gap: 1.1rem;
+      margin-bottom: 1.5rem;
+      align-items: flex-start;
+    }
+    .location-icon-bubble {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-color: var(--swatch-blush);
+      color: var(--swatch-wine);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.2rem;
+    }
+    .location-text-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--swatch-wine);
+      margin-bottom: 0.2rem;
+    }
+    .location-text-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .map-container {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 3px solid var(--white);
+      height: 100%;
+      min-height: 360px;
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      min-height: 360px;
+    }
+
+    /* SEÇÃO CONTATO & AGENDAMENTO */
+    .contact-section {
+      padding: 5.5rem 0;
+      background: linear-gradient(180deg, var(--swatch-nude) 0%, rgba(244, 213, 217, 0.4) 100%);
+    }
+    .contact-wrapper {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(224, 135, 152, 0.3);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 900px) {
+      .contact-wrapper {
+        grid-template-columns: 1fr 1.25fr;
+      }
+    }
+    .contact-side-info {
+      background: linear-gradient(135deg, var(--swatch-wine) 0%, var(--swatch-berry) 100%);
+      color: var(--white);
+      padding: 3rem 2.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .side-title {
+      color: var(--white);
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+    .contact-channel-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      color: #FEEFF2;
+    }
+    .contact-channel-item a {
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+    .contact-channel-item a:hover {
+      text-decoration: underline;
+    }
+
+    /* Formulário */
+    .contact-form-side {
+      padding: 3rem 2.2rem;
+    }
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+    .form-label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--swatch-wine);
+      margin-bottom: 0.4rem;
+    }
+    .form-control {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid rgba(224, 135, 152, 0.4);
+      background-color: #FFFDFD;
+      font-family: 'Figtree', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      transition: var(--transition);
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: var(--swatch-berry);
+      box-shadow: 0 0 0 3px rgba(178, 61, 90, 0.15);
+    }
+    select.form-control {
+      cursor: pointer;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background-color: #2D0812;
+      color: #F8D7DE;
+      padding: 4rem 0 2rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+    @media (min-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 2fr 1fr 1fr;
+      }
+    }
+    .footer-brand-title {
+      font-size: 1.8rem;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+    .footer-desc {
+      color: #D3A7B1;
+      font-size: 0.95rem;
+      max-width: 380px;
+      line-height: 1.6;
+    }
+    .footer-heading {
+      font-size: 1.1rem;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+      font-weight: 600;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .footer-links a {
+      color: #D3A7B1;
+      font-size: 0.9rem;
+    }
+    .footer-links a:hover {
+      color: var(--white);
+      padding-left: 4px;
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(244, 213, 217, 0.15);
+      padding-top: 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #A37580;
+    }
+
+    /* Botão Flutuante de WhatsApp */
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background-color: #25D366;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+      z-index: 999;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .floating-whatsapp:hover {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+    }
+    .floating-whatsapp svg {
+      width: 32px;
+      height: 32px;
+      fill: currentColor;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. HEADER FIXO -->
+  <header class="site-header" id="header">
+    <div class="container header-content">
+      <!-- Logo com swatches de maquiagem -->
+      <a href="#hero" class="logo-container" aria-label="Página inicial Magda Pires">
+        <div class="logo-swatches" title="Paleta de Sombras">
+          <span class="swatch-dot swatch-1"></span>
+          <span class="swatch-dot swatch-2"></span>
+          <span class="swatch-dot swatch-3"></span>
+          <span class="swatch-dot swatch-4"></span>
+          <span class="swatch-dot swatch-5"></span>
+        </div>
+        <div>
+          <span class="brand-name font-serif">Magda Pires</span>
+          <span class="brand-sub">Studio de Beleza</span>
+        </div>
+      </a>
+
+      <!-- Menu Principal Desktop -->
+      <nav aria-label="Navegação Principal">
+        <ul class="nav-menu">
+          <li><a href="#sobre" class="nav-link">Sobre</a></li>
+          <li><a href="#portfolio" class="nav-link">Portfólio</a></li>
+          <li><a href="#micropigmentacao" class="nav-link">Micropigmentação</a></li>
+          <li><a href="#estetica" class="nav-link">Estética</a></li>
+          <li><a href="#unhas" class="nav-link">Unhas</a></li>
+          <li><a href="#avaliacoes" class="nav-link">Avaliações</a></li>
+          <li><a href="#localizacao" class="nav-link">Localização</a></li>
+        </ul>
+      </nav>
+
+      <!-- Ações do Header -->
+      <div class="header-actions">
+        <a href="https://wa.me/5521971204910" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.65rem 1.25rem; font-size: 0.88rem;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.044c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
+          <span>Agendar no WhatsApp</span>
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Gaveta do Menu Mobile -->
+    <div class="mobile-menu-drawer" id="mobileDrawer">
+      <ul class="mobile-nav-list">
+        <li><a href="#sobre" class="nav-link mobile-link">Sobre o Studio</a></li>
+        <li><a href="#portfolio" class="nav-link mobile-link">Portfólio Maquiagem & Cílios</a></li>
+        <li><a href="#micropigmentacao" class="nav-link mobile-link">Micropigmentação</a></li>
+        <li><a href="#estetica" class="nav-link mobile-link">Estética Facial & Corporal</a></li>
+        <li><a href="#unhas" class="nav-link mobile-link">Unhas & Nail Designer</a></li>
+        <li><a href="#avaliacoes" class="nav-link mobile-link">Depoimentos dos Clientes</a></li>
+        <li><a href="#localizacao" class="nav-link mobile-link">Localização & Acesso</a></li>
+        <li><a href="#contato" class="nav-link mobile-link">Agendamento & Contato</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- 2. HERO: GRID DE PORTFÓLIO COMO MOLDURA + CONTEÚDO SOBREPOSTO -->
+  <section class="hero-section" id="hero">
+    <div class="container">
+      <div class="hero-grid-wrapper">
+        <!-- Grade de fundo com 6 fotos ilustrativas de maquiagem e cílios -->
+        <div class="hero-photos-grid">
+          <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=600&q=80" alt="Make profissional suave" class="hero-photo-item" onerror="this.src='https://placehold.co/600x400/E08798/FFFFFF?text=Maquiagem'">
+          <img src="https://images.unsplash.com/photo-1583001931096-959e9a1a6223?auto=format&fit=crop&w=600&q=80" alt="Extensão de cílios perfeita" class="hero-photo-item" onerror="this.src='https://placehold.co/600x400/BA4E68/FFFFFF?text=Cílios'">
+          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80" alt="Paleta de maquiagem profissional" class="hero-photo-item" onerror="this.src='https://placehold.co/600x400/681B30/FFFFFF?text=Paleta'">
+          <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=600&q=80" alt="Detalhe de micropigmentação" class="hero-photo-item" onerror="this.src='https://placehold.co/600x400/E08798/FFFFFF?text=Micropigmentação'">
+          <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=600&q=80" alt="Studio de beleza aconchegante" class="hero-photo-item" onerror="this.src='https://placehold.co/600x400/BA4E68/FFFFFF?text=Studio'">
+          <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=600&q=80" alt="Unhas bem trabalhadas" class="hero-photo-item" onerror="this.src='https://placehold.co/600x400/681B30/FFFFFF?text=Unhas'">
+        </div>
+
+        <!-- Conteúdo central sobreposto -->
+        <div class="hero-overlay-card">
+          <div class="hero-badge">
+            <span class="swatch-dot swatch-1"></span>
+            <span class="swatch-dot swatch-3"></span>
+            <span>Estética, Maquiagem & Cuidado em Cada Detalhe</span>
+          </div>
+          <h1 class="hero-title">Studio de Beleza Magda Pires</h1>
+          <p class="hero-subtitle">
+            Especialista em realçar a sua beleza natural com sofisticação, precisão técnica e um portfólio visual apaixonante no Andaraí.
+          </p>
+          <div class="hero-buttons">
+            <a href="https://wa.me/5521971204910" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+              <span>Agendar no WhatsApp</span>
+            </a>
+            <a href="https://www.trinks.com" target="_blank" rel="noopener noreferrer" class="btn btn-light" title="Agende diretamente pelo Trinks">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              <span>Reservar Online (Trinks)</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. NAVEGAÇÃO POR CATEGORIA EM "SWATCHES" DE ROSA -->
+  <section class="swatches-nav-section">
+    <div class="container">
+      <div class="swatches-bar" role="navigation" aria-label="Filtro rápido por paleta de serviços">
+        <span class="swatches-label">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle></svg>
+          Paleta:
+        </span>
+        <a href="#portfolio" class="swatch-item">
+          <span class="palette-circle" style="background-color: var(--swatch-rose);"></span>
+          <span>Maquiagem</span>
+        </a>
+        <a href="#portfolio" class="swatch-item">
+          <span class="palette-circle" style="background-color: var(--swatch-pink-soft);"></span>
+          <span>Extensão de Cílios</span>
+        </a>
+        <a href="#micropigmentacao" class="swatch-item">
+          <span class="palette-circle" style="background-color: var(--swatch-berry);"></span>
+          <span>Micropigmentação</span>
+        </a>
+        <a href="#estetica" class="swatch-item">
+          <span class="palette-circle" style="background-color: var(--swatch-blush);"></span>
+          <span>Estética Facial & Corporal</span>
+        </a>
+        <a href="#unhas" class="swatch-item">
+          <span class="palette-circle" style="background-color: var(--swatch-wine);"></span>
+          <span>Unhas & Nail Designer</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. SOBRE O STUDIO -->
+  <section class="about-section" id="sobre">
+    <div class="container">
+      <div class="about-grid">
+        <!-- Foto da profissional / studio com badge do Google -->
+        <div class="about-visual">
+          <div class="about-main-img-card">
+            <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=800&q=80" alt="Profissional Magda Pires realizando maquiagem" onerror="this.src='https://placehold.co/800x900/F4D5D9/5F1527?text=Magda+Pires'">
+          </div>
+          <!-- Selo discreto Google 5.0 -->
+          <div class="google-badge-card">
+            <div>
+              <div class="google-stars">★★★★★</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted);">Google Avaliações</div>
+            </div>
+            <div class="google-score">5.0 <span style="font-size: 0.75rem; font-weight: normal; color: var(--text-muted);">(22)</span></div>
+          </div>
+        </div>
+
+        <!-- Descrição oficial do negócio -->
+        <div class="about-text-content">
+          <div class="section-tag">
+            <span class="swatch-dot swatch-4"></span>
+            <span>Sobre o Studio</span>
+          </div>
+          <h2 class="section-title">Beleza natural realçada com técnica e afeto</h2>
+          <p>
+            O <strong>Studio de Beleza Magda Pires</strong> é especializado em estética facial e corporal, com serviços de extensão de cílios, maquiagem, penteado, micropigmentação, nails designer, manicure e pedicure.
+          </p>
+          <p>
+            Um espaço pensado para realçar a beleza natural de cada cliente com técnica e cuidado em cada detalhe, localizado com conforto e segurança na Galeria do Edifício San Remo, no coração do Andaraí.
+          </p>
+
+          <ul class="feature-points">
+            <li class="feature-point-item">
+              <span class="swatch-dot swatch-3"></span>
+              <span>Atendimento Exclusivo</span>
+            </li>
+            <li class="feature-point-item">
+              <span class="swatch-dot swatch-4"></span>
+              <span>Materiais de Alta Performance</span>
+            </li>
+            <li class="feature-point-item">
+              <span class="swatch-dot swatch-5"></span>
+              <span>Biossegurança Rigorosa</span>
+            </li>
+            <li class="feature-point-item">
+              <span class="swatch-dot swatch-2"></span>
+              <span>Localização Privilegiada</span>
+            </li>
+          </ul>
+
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="https://wa.me/5521971204910" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <span>Conversar com a Magda</span>
+            </a>
+            <a href="#portfolio" class="btn btn-secondary">
+              <span>Ver Fotos dos Trabalhos</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. PORTFÓLIO EM DESTAQUE: MAQUIAGEM E CÍLIOS (MASONRY GRID) -->
+  <section class="portfolio-section" id="portfolio">
+    <div class="container">
+      <div style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">
+        <div class="section-tag">
+          <span class="swatch-dot swatch-3"></span>
+          <span>Galeria Visual</span>
+        </div>
+        <h2 class="section-title">Portfólio em Destaque: Maquiagem & Cílios</h2>
+        <p class="section-desc" style="margin-left: auto; margin-right: auto;">
+          Nossa maior assinatura: técnicas personalizadas para cada formato de olho, tom de pele e momento especial. Sinta o acabamento profissional.
+        </p>
+      </div>
+
+      <!-- Grid Masonry com alturas variadas -->
+      <div class="masonry-gallery">
+        <!-- Item 1: Maquiagem Social Iluminada (Vertical alta) -->
+        <div class="masonry-card">
+          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&h=800&q=80" alt="Maquiagem Social Glamour" onerror="this.src='https://placehold.co/600x800/F4D5D9/5F1527?text=Make+Social'">
+          <div class="masonry-overlay">
+            <span class="overlay-category">Maquiagem</span>
+            <div class="overlay-title">Maquiagem Social Glamour</div>
+          </div>
+        </div>
+
+        <!-- Item 2: Volume Brasileiro (Média) -->
+        <div class="masonry-card">
+          <img src="https://images.unsplash.com/photo-1583001931096-959e9a1a6223?auto=format&fit=crop&w=600&h=600&q=80" alt="Extensão de Cílios Volume Brasileiro" onerror="this.src='https://placehold.co/600x600/ECA1AE/5F1527?text=Volume+Brasileiro'">
+          <div class="masonry-overlay">
+            <span class="overlay-category">Extensão de Cílios</span>
+            <div class="overlay-title">Extensão Volume Brasileiro</div>
+          </div>
+        </div>
+
+        <!-- Item 3: Noiva e Madrinhas (Alta) -->
+        <div class="masonry-card">
+          <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=600&h=750&q=80" alt="Produção Especial para Noivas" onerror="this.src='https://placehold.co/600x750/D96E84/FFFFFF?text=Make+Noiva'">
+          <div class="masonry-overlay">
+            <span class="overlay-category">Maquiagem & Penteado</span>
+            <div class="overlay-title">Produção Especial Noivas & Festas</div>
+          </div>
+        </div>
+
+        <!-- Item 4: Fio a Fio Clássico (Compacta) -->
+        <div class="masonry-card">
+          <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=600&h=500&q=80" alt="Cílios Fio a Fio Efeito Natural" onerror="this.src='https://placehold.co/600x500/B23D5A/FFFFFF?text=Fio+a+Fio'">
+          <div class="masonry-overlay">
+            <span class="overlay-category">Extensão de Cílios</span>
+            <div class="overlay-title">Cílios Clássico Efeito Rímel</div>
+          </div>
+        </div>
+
+        <!-- Item 5: Paleta Rosada / Editorial (Média) -->
+        <div class="masonry-card">
+          <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=600&h=620&q=80" alt="Make Monocromática em Tons Rosados" onerror="this.src='https://placehold.co/600x620/F4D5D9/5F1527?text=Tons+Rosados'">
+          <div class="masonry-overlay">
+            <span class="overlay-category">Maquiagem</span>
+            <div class="overlay-title">Harmonia Monocromática Rosê</div>
+          </div>
+        </div>
+
+        <!-- Item 6: Mega Volume & Efeito Fox Eyes (Alta) -->
+        <div class="masonry-card">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&h=780&q=80" alt="Design Fox Eyes com Cílios" onerror="this.src='https://placehold.co/600x780/5F1527/FFFFFF?text=Fox+Eyes'">
+          <div class="masonry-overlay">
+            <span class="overlay-category">Extensão de Cílios</span>
+            <div class="overlay-title">Design Fox Eyes com Alongamento</div>
+          </div>
+        </div>
+
+        <!-- Item 7: Pele Glow e Lábios Hidratados (Média) -->
+        <div class="masonry-card">
+          <img src="https://images.unsplash.com/photo-1503236823255-94609f598e71?auto=format&fit=crop&w=600&h=580&q=80" alt="Maquiagem Acabamento Glow" onerror="this.src='https://placehold.co/600x580/ECA1AE/5F1527?text=Pele+Glow'">
+          <div class="masonry-overlay">
+            <span class="overlay-category">Maquiagem</span>
+            <div class="overlay-title">Pele Blindada com Glow Natural</div>
+          </div>
+        </div>
+
+        <!-- Item 8: Volume Híbrido Elegante (Compacta) -->
+        <div class="masonry-card">
+          <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=600&h=520&q=80" alt="Cílios Volume Híbrido" onerror="this.src='https://placehold.co/600x520/D96E84/FFFFFF?text=Volume+Híbrido'">
+          <div class="masonry-overlay">
+            <span class="overlay-category">Extensão de Cílios</span>
+            <div class="overlay-title">Volume Híbrido Sofisticado</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 3rem;">
+        <a href="https://www.instagram.com/magdapiresmakeup" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          <span>Ver mais no Instagram @magdapiresmakeup</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. MICROPIGMENTAÇÃO -->
+  <section class="micro-section" id="micropigmentacao">
+    <div class="container">
+      <div class="micro-grid">
+        <div>
+          <div class="section-tag">
+            <span class="swatch-dot swatch-4"></span>
+            <span>Alta Precisão</span>
+          </div>
+          <h2 class="section-title">Micropigmentação: Sobrancelhas e Lábios Definidos</h2>
+          <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem;">
+            A técnica ideal para quem busca praticidade diária sem perder a delicadeza e a naturalidade. Corrigimos falhas, devolvemos a simetria facial e realçamos o contorno natural com pigmentos selecionados para o seu fototipo.
+          </p>
+          <div style="margin-bottom: 2rem;">
+            <div style="display: flex; gap: 0.8rem; margin-bottom: 1rem; align-items: flex-start;">
+              <span class="swatch-dot swatch-4" style="margin-top: 6px;"></span>
+              <div>
+                <strong style="color: var(--swatch-wine);">Nanoblading & Shadow Line:</strong>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Fios ultrafinos desenhados na direção do crescimento natural para um efeito discreto e harmonioso.</p>
+              </div>
+            </div>
+            <div style="display: flex; gap: 0.8rem; align-items: flex-start;">
+              <span class="swatch-dot swatch-5" style="margin-top: 6px;"></span>
+              <div>
+                <strong style="color: var(--swatch-wine);">Neutralização e Revitalização Labial:</strong>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Efeito aquarela com cor saudável e aspecto de lábios jovens e hidratados todos os dias.</p>
+              </div>
+            </div>
+          </div>
+          <a href="https://wa.me/5521971204910?text=Olá!%20Gostaria%20de%20uma%20avaliação%20para%20Micropigmentação." target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <span>Avaliar Meu Caso pelo WhatsApp</span>
+          </a>
+        </div>
+
+        <div class="micro-cards-dual">
+          <div class="micro-photo-box">
+            <span class="micro-tag">Efeito Shadow</span>
+            <img src="https://images.unsplash.com/photo-1588514912908-769046c8b93f?auto=format&fit=crop&w=600&h=700&q=80" alt="Resultado de micropigmentação de sobrancelhas" onerror="this.src='https://placehold.co/600x700/F4D5D9/5F1527?text=Sobrancelhas'">
+          </div>
+          <div class="micro-photo-box">
+            <span class="micro-tag">Labial Aquarela</span>
+            <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=600&h=700&q=80" alt="Micropigmentação labial revitalizante" onerror="this.src='https://placehold.co/600x700/BA4E68/FFFFFF?text=Lábios+Aquarela'">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. ESTÉTICA FACIAL, CORPORAL E PENTEADO -->
+  <section class="services-section" id="estetica">
+    <div class="container">
+      <div style="text-align: center; max-width: 650px; margin: 0 auto 3.5rem;">
+        <div class="section-tag">
+          <span class="swatch-dot swatch-2"></span>
+          <span>Cuidados Especiais</span>
+        </div>
+        <h2 class="section-title">Estética Facial & Corporal</h2>
+        <p class="section-desc" style="margin-left: auto; margin-right: auto;">
+          Tratamentos voltados para saúde dérmica, renovação celular, relaxamento e penteados para datas inesquecíveis.
+        </p>
+      </div>
+
+      <div class="services-grid-3">
+        <!-- Card 1: Facial -->
+        <div class="service-card">
+          <div class="service-icon-box">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 5 8 12 8 12s8-7 8-12a8 8 0 0 0-8-8z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          </div>
+          <h3 class="service-title">Estética Facial</h3>
+          <p class="service-desc">
+            Limpeza de pele profunda, peelings suaves, hidratação de choque e revitalização celular para iluminar e purificar sua pele.
+          </p>
+          <a href="https://wa.me/5521971204910?text=Olá!%20Quero%20saber%20sobre%20Estética%20Facial." target="_blank" rel="noopener noreferrer" class="service-link">
+            <span>Saber detalhes &rarr;</span>
+          </a>
+        </div>
+
+        <!-- Card 2: Corporal -->
+        <div class="service-card">
+          <div class="service-icon-box">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </div>
+          <h3 class="service-title">Estética Corporal</h3>
+          <p class="service-desc">
+            Massagens relaxantes, drenagem linfática manual e protocolos corporais desenvolvidos para desinchar, modelar e renovar o bem-estar.
+          </p>
+          <a href="https://wa.me/5521971204910?text=Olá!%20Quero%20saber%20sobre%20Estética%20Corporal." target="_blank" rel="noopener noreferrer" class="service-link">
+            <span>Saber detalhes &rarr;</span>
+          </a>
+        </div>
+
+        <!-- Card 3: Penteado -->
+        <div class="service-card">
+          <div class="service-icon-box">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          </div>
+          <h3 class="service-title">Penteados para Festas</h3>
+          <p class="service-desc">
+            Penteados clássicos, tranças sofisticadas, semi-presos e coques elegantes que garantem fixação e harmonia com a sua maquiagem.
+          </p>
+          <a href="https://wa.me/5521971204910?text=Olá!%20Quero%20saber%20sobre%20Penteados." target="_blank" rel="noopener noreferrer" class="service-link">
+            <span>Saber detalhes &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. UNHAS (NAILS DESIGNER, MANICURE, PEDICURE) -->
+  <section class="nails-section" id="unhas">
+    <div class="container">
+      <div style="text-align: center; max-width: 650px; margin: 0 auto 3.5rem;">
+        <div class="section-tag">
+          <span class="swatch-dot swatch-5"></span>
+          <span>Nails Design</span>
+        </div>
+        <h2 class="section-title">Unhas: Cuidado, Esmaltação & Durabilidade</h2>
+        <p class="section-desc" style="margin-left: auto; margin-right: auto;">
+          Manicure e pedicure impecáveis com materiais esterilizados em autoclave e as tendências mais atuais em alongamento.
+        </p>
+      </div>
+
+      <div class="services-grid-3">
+        <!-- Card 1: Nails Designer -->
+        <div class="service-card" style="background: var(--white);">
+          <div class="service-icon-box" style="background-color: var(--swatch-pink-soft);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+          </div>
+          <h3 class="service-title">Nails Designer</h3>
+          <p class="service-desc">
+            Alongamentos em gel, fibra de vidro, banho de gel e nail art exclusiva para unhas resistentes com acabamento natural.
+          </p>
+          <a href="https://wa.me/5521971204910?text=Olá!%20Gostaria%20de%20agendar%20alongamento%20de%20unhas." target="_blank" rel="noopener noreferrer" class="service-link">
+            <span>Consultar vagas &rarr;</span>
+          </a>
+        </div>
+
+        <!-- Card 2: Manicure -->
+        <div class="service-card" style="background: var(--white);">
+          <div class="service-icon-box" style="background-color: var(--swatch-blush);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" y1="4" x2="8.12" y2="15.88"></line><line x1="14.47" y1="14.48" x2="20" y2="20"></line><line x1="8.12" y1="8.12" x2="12" y2="12"></line></svg>
+          </div>
+          <h3 class="service-title">Manicure Tradicional & Gel</h3>
+          <p class="service-desc">
+            Cutilagem funda e precisa, hidratação profunda de cutículas e esmaltação perfeita com as cores clássicas e da estação.
+          </p>
+          <a href="https://wa.me/5521971204910?text=Olá!%20Quero%20agendar%20manicure." target="_blank" rel="noopener noreferrer" class="service-link">
+            <span>Consultar vagas &rarr;</span>
+          </a>
+        </div>
+
+        <!-- Card 3: Pedicure -->
+        <div class="service-card" style="background: var(--white);">
+          <div class="service-icon-box" style="background-color: var(--swatch-rose); color: var(--white);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+          </div>
+          <h3 class="service-title">Pedicure & Spa dos Pés</h3>
+          <p class="service-desc">
+            Cuidado integral para a saúde dos seus pés, esfoliação relaxante, remoção de asperezas e finalização acetinada.
+          </p>
+          <a href="https://wa.me/5521971204910?text=Olá!%20Quero%20agendar%20pedicure." target="_blank" rel="noopener noreferrer" class="service-link">
+            <span>Consultar vagas &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. AVALIAÇÕES / DEPOIMENTOS DE CLIENTES -->
+  <section class="reviews-section" id="avaliacoes">
+    <div class="container">
+      <div class="google-header-highlight">
+        <div class="section-tag">
+          <span class="swatch-dot swatch-4"></span>
+          <span>Opinião de Quem Confia</span>
+        </div>
+        <h2 class="section-title">Reconhecimento 5 Estrelas</h2>
+        <div class="google-star-row">★★★★★</div>
+        <div class="google-stat-text">Avaliação Máxima 5,0 no Google (22 avaliações verificadas)</div>
+      </div>
+
+      <div class="testimonials-grid">
+        <!-- Depoimento 1 -->
+        <div class="testimonial-card">
+          <span class="testimonial-swatch swatch-2"></span>
+          <div class="quote-icon">“</div>
+          <p class="testimonial-quote">
+            "Super indico seu trabalho... voltarei outras vezes, com certeza."
+          </p>
+          <div class="reviewer-info">
+            <div class="reviewer-avatar">C</div>
+            <div>
+              <div class="reviewer-name">Cliente Satisfeita</div>
+              <div class="reviewer-source">Google Reviews • 5.0 ★</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Depoimento 2 -->
+        <div class="testimonial-card">
+          <span class="testimonial-swatch swatch-3"></span>
+          <div class="quote-icon">“</div>
+          <p class="testimonial-quote">
+            "Boa localização e fácil acesso!"
+          </p>
+          <div class="reviewer-info">
+            <div class="reviewer-avatar">A</div>
+            <div>
+              <div class="reviewer-name">Cliente Frequente</div>
+              <div class="reviewer-source">Google Reviews • 5.0 ★</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Depoimento 3 -->
+        <div class="testimonial-card">
+          <span class="testimonial-swatch swatch-4"></span>
+          <div class="quote-icon">“</div>
+          <p class="testimonial-quote">
+            "Atendimento impecável, ambiente acolhedor e um cuidado visível em cada detalhe."
+          </p>
+          <div class="reviewer-info">
+            <div class="reviewer-avatar">M</div>
+            <div>
+              <div class="reviewer-name">Cliente Encantada</div>
+              <div class="reviewer-source">Google Reviews • 5.0 ★</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. LOCALIZAÇÃO E HORÁRIOS -->
+  <section class="location-section" id="localizacao">
+    <div class="container">
+      <div class="location-grid">
+        <!-- Informações de endereço e horário -->
+        <div class="location-info-card">
+          <div class="section-tag">
+            <span class="swatch-dot swatch-5"></span>
+            <span>Como Chegar</span>
+          </div>
+          <h2 class="section-title" style="font-size: 2.2rem;">No coração do Andaraí</h2>
+          <p style="color: var(--text-muted); margin-bottom: 2rem;">
+            Ambiente planejado com climatização, conforto e privacidade dentro da tradicional Galeria do Edifício San Remo.
+          </p>
+
+          <div class="location-detail-group">
+            <div class="location-icon-bubble">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <div>
+              <div class="location-text-title">Endereço</div>
+              <div class="location-text-desc">
+                Rua Barão de Mesquita, 891 - Loja 40<br>
+                <strong>Condomínio e Galeria do Edifício San Remo</strong><br>
+                Andaraí, Rio de Janeiro - RJ, CEP 20540-215
+              </div>
+            </div>
+          </div>
+
+          <div class="location-detail-group">
+            <div class="location-icon-bubble">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+            <div>
+              <div class="location-text-title">Horário de Funcionamento</div>
+              <div class="location-text-desc">
+                Segunda a Sábado: <strong>09:00 às 17:00</strong><br>
+                <span style="color: #2E7D32; font-weight: 600;">● Aberto hoje com agendamento prévio</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="location-detail-group">
+            <div class="location-icon-bubble">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </div>
+            <div>
+              <div class="location-text-title">Contato Direto</div>
+              <div class="location-text-desc">
+                WhatsApp: (21) 97120-4910<br>
+                Instagram: @magdapiresmakeup
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Google Maps Embed com endereço real -->
+        <div class="map-container">
+          <iframe 
+            src="https://maps.google.com/maps?q=Rua%20Bar%C3%A3o%20de%20Mesquita,%20891,%20Andara%C3%AD,%20Rio%20de%20Janeiro&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+            title="Localização do Studio Magda Pires na Rua Barão de Mesquita 891" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. CONTATO E AGENDAMENTO (FORMULÁRIO INTELIGENTE PARA WHATSAPP) -->
+  <section class="contact-section" id="contato">
+    <div class="container">
+      <div class="contact-wrapper">
+        <!-- Lado Esquerdo: Ações Rápidas -->
+        <div class="contact-side-info">
+          <div>
+            <div class="section-tag" style="background: rgba(255,255,255,0.2); color: #FFF;">
+              <span>Agendamento Rápido</span>
+            </div>
+            <h2 class="side-title font-serif">Reserve Seu Momento Especial</h2>
+            <p style="color: #F8D0D8; margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.6;">
+              Prefere agendamento imediato? Você pode falar diretamente pelo WhatsApp ou usar o sistema de reservas online.
+            </p>
+
+            <div class="contact-channel-item">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.044c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
+              <div>
+                <div style="font-size: 0.8rem; opacity: 0.85;">WhatsApp Oficial</div>
+                <a href="https://wa.me/5521971204910" target="_blank" rel="noopener noreferrer">(21) 97120-4910</a>
+              </div>
+            </div>
+
+            <div class="contact-channel-item">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              <div>
+                <div style="font-size: 0.8rem; opacity: 0.85;">Instagram</div>
+                <a href="https://www.instagram.com/magdapiresmakeup" target="_blank" rel="noopener noreferrer">@magdapiresmakeup</a>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem;">
+            <a href="https://wa.me/5521971204910" target="_blank" rel="noopener noreferrer" class="btn btn-light" style="width: 100%;">
+              <span>Chamar no WhatsApp</span>
+            </a>
+            <a href="https://www.trinks.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="border-color: #F8D0D8; color: #FFF; width: 100%;">
+              <span>Reservar Online (Trinks)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Lado Direito: Formulário com disparo formatado para WhatsApp -->
+        <div class="contact-form-side">
+          <h3 style="font-size: 1.6rem; color: var(--swatch-wine); margin-bottom: 0.5rem;" class="font-serif">Envie uma Mensagem</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+            Preencha seus dados abaixo para conversarmos com os detalhes do procedimento pré-selecionados:
+          </p>
+
+          <form id="bookingForm">
+            <div class="form-group">
+              <label for="clientName" class="form-label">Seu Nome Completo</label>
+              <input type="text" id="clientName" class="form-control" placeholder="Ex: Patrícia Silva" required>
+            </div>
+
+            <div class="form-group">
+              <label for="clientPhone" class="form-label">Telefone / WhatsApp</label>
+              <input type="tel" id="clientPhone" class="form-control" placeholder="(21) 99999-9999" required>
+            </div>
+
+            <div class="form-group">
+              <label for="serviceInterest" class="form-label">Serviço de Interesse Principal</label>
+              <select id="serviceInterest" class="form-control" required>
+                <option value="" disabled selected>Selecione um serviço da paleta</option>
+                <option value="Maquiagem Profissional (Social / Noiva)">Maquiagem Profissional (Social / Noiva)</option>
+                <option value="Extensão de Cílios">Extensão de Cílios</option>
+                <option value="Micropigmentação (Sobrancelhas ou Lábios)">Micropigmentação (Sobrancelhas ou Lábios)</option>
+                <option value="Estética Facial">Estética Facial</option>
+                <option value="Estética Corporal">Estética Corporal</option>
+                <option value="Penteado">Penteado</option>
+                <option value="Nails Designer (Alongamento em Gel)">Nails Designer (Alongamento em Gel)</option>
+                <option value="Manicure / Pedicure">Manicure / Pedicure</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="clientMessage" class="form-label">Dúvida ou data desejada (opcional)</label>
+              <textarea id="clientMessage" class="form-control" rows="3" placeholder="Ex: Gostaria de saber disponibilidade para este sábado à tarde..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem;">
+              <span>Enviar e Iniciar Agendamento</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-title font-serif">Studio de Beleza Magda Pires</div>
+          <p class="footer-desc">
+            Realçando a beleza natural de cada cliente com técnica, precisão e cuidado em cada detalhe. O seu espaço de estética e bem-estar no Andaraí.
+          </p>
+          <div style="display: flex; gap: 6px; margin-top: 1.25rem;">
+            <span class="swatch-dot swatch-1"></span>
+            <span class="swatch-dot swatch-2"></span>
+            <span class="swatch-dot swatch-3"></span>
+            <span class="swatch-dot swatch-4"></span>
+            <span class="swatch-dot swatch-5"></span>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Navegação</h4>
+          <ul class="footer-links">
+            <li><a href="#sobre">Sobre o Studio</a></li>
+            <li><a href="#portfolio">Portfólio de Cílios & Make</a></li>
+            <li><a href="#micropigmentacao">Micropigmentação</a></li>
+            <li><a href="#estetica">Estética Facial e Corporal</a></li>
+            <li><a href="#unhas">Nails Designer & Unhas</a></li>
+            <li><a href="#avaliacoes">Avaliações 5.0 Google</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Studio & Atendimento</h4>
+          <p style="color: #D3A7B1; font-size: 0.9rem; line-height: 1.6; margin-bottom: 0.8rem;">
+            Rua Barão de Mesquita, 891 - Lj 40<br>
+            Galeria Edifício San Remo<br>
+            Andaraí, Rio de Janeiro - RJ
+          </p>
+          <p style="color: #D3A7B1; font-size: 0.9rem; line-height: 1.6;">
+            <strong>WhatsApp:</strong> (21) 97120-4910<br>
+            <strong>Instagram:</strong> @magdapiresmakeup
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Studio de Beleza Magda Pires. Todos os direitos reservados. Andaraí, Rio de Janeiro - RJ.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botão Flutuante do WhatsApp -->
+  <a href="https://wa.me/5521971204910" target="_blank" rel="noopener noreferrer" class="floating-whatsapp" aria-label="Falar agora pelo WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.044c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
+  </a>
+
+  <!-- JAVASCRIPT PURO E LEVE -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Menu Hambúrguer Mobile
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileDrawer = document.getElementById('mobileDrawer');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+
+      if (menuToggle && mobileDrawer) {
+        menuToggle.addEventListener('click', () => {
+          const isActive = mobileDrawer.classList.toggle('active');
+          menuToggle.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+        });
+
+        // Fechar gaveta ao clicar em qualquer link
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mobileDrawer.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      // 2. Scroll Suave com offset para compensar o Header Fixo
+      const navLinks = document.querySelectorAll('a[href^="#"]');
+      const header = document.getElementById('header');
+
+      navLinks.forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            e.preventDefault();
+            const headerHeight = header ? header.offsetHeight : 70;
+            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 10;
+
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+      // 3. Formulário de Contato Inteligente -> WhatsApp
+      const bookingForm = document.getElementById('bookingForm');
+      if (bookingForm) {
+        bookingForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+
+          const name = document.getElementById('clientName').value.trim();
+          const phone = document.getElementById('clientPhone').value.trim();
+          const service = document.getElementById('serviceInterest').value;
+          const notes = document.getElementById('clientMessage').value.trim();
+
+          // Montagem do texto personalizado
+          let message = `Olá, Magda! Meu nome é *${name}*.\n`;
+          message += `Gostaria de agendar ou tirar dúvidas sobre o serviço: *${service}*.\n`;
+          message += `Meu contato/WhatsApp: ${phone}\n`;
+          if (notes) {
+            message += `Mensagem/Observação: "${notes}"`;
+          }
+
+          // Redirecionamento com URL encode
+          const whatsappUrl = `https://wa.me/5521971204910?text=${encodeURIComponent(message)}`;
+          window.open(whatsappUrl, '_blank');
+        });
+      }
+
+      // 4. Efeito de elevação da sombra no Header ao rolar
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 20) {
+          header.style.boxShadow = '0 4px 20px rgba(95, 21, 39, 0.12)';
+        } else {
+          header.style.boxShadow = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
